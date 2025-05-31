@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsi_prak_mobile/views/create_page.dart';
 import 'package:responsi_prak_mobile/views/edit_page.dart';
-import 'package:responsi_prak_mobile/views/favorite_page.dart';
 import 'package:responsi_prak_mobile/views/home_page.dart';
 
 void main() {
@@ -25,7 +24,6 @@ class MyApp extends StatelessWidget {
         '/': (context) => HomePage(),
         '/create' : (context) => CreatePage(),
         '/edit' : (context) => EditPage(),
-        '/fav' : (context) => FavoritePage(),
       },
     );
   }

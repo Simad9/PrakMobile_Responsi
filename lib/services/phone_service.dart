@@ -1,35 +1,32 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../models/phone_model.dart';
-import '../models/phonedetail_model.dart';
 
 class PhoneService {
   static const String baseUrl = "https://resp-api-three.vercel.app";
 
   // Get All Data
   Future<List<Phone>> fetchPhones() async {
-    print("fungsi berjalan");
     final response = await http.get(Uri.parse('$baseUrl/phones'));
-    print("response sudah");
     if (response.statusCode == 200) {
       final Map<String, dynamic> decoded = json.decode(response.body);
       final List<dynamic> data = decoded['data'];
       return data.map((json) => Phone.fromJson(json)).toList();
     } else {
-      throw Exception('Failed to load movies');
+      throw Exception('Failed to load data');
     }
   }
 
   // Get Detail Data
-  Future<PhoneDetail> fetchDetailPhone(int id) async {
+  Future<Phone> fetchDetailPhone(int id) async {
     final response = await http.get(Uri.parse('$baseUrl/phone/$id'));
     if (response.statusCode == 200) {
       final Map<String, dynamic> decoded = json.decode(response.body);
       final data = decoded['data'];
 
-      return PhoneDetail.fromJson(data);
+      return Phone.fromJson(data);
     } else {
-      throw Exception('Failed to load movie detail');
+      throw Exception('Failed to load data detail');
     }
   }
 

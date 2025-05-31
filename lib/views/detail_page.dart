@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:responsi_prak_mobile/models/phonedetail_model.dart';
+import 'package:responsi_prak_mobile/models/phone_model.dart';
 import 'package:responsi_prak_mobile/services/phone_service.dart';
 
 class DetailPage extends StatefulWidget {
@@ -11,7 +11,7 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
-  late Future<PhoneDetail> _phoneDetailFuture;
+  late Future<Phone> _phoneDetailFuture;
 
   @override
   void initState() {
@@ -23,7 +23,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Phone Detail")),
-      body: FutureBuilder<PhoneDetail>(
+      body: FutureBuilder<Phone>(
         future: _phoneDetailFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
